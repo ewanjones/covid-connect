@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    {% include 'components/form.html' with form=form button_text="Register" %}
+
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+{% endblock %}
