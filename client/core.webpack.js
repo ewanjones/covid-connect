@@ -8,7 +8,7 @@ const outputDirectory = 'covid/static';
 
 module.exports = {
     entry: {
-        home: ['babel-polyfill', './app/index.js'],
+        chat: ['babel-polyfill', './app/index.js'],
     },
     module: {
         rules: [
@@ -53,7 +53,8 @@ module.exports = {
                     {
                         loader: 'sass-resources-loader',
                         options: {
-                            resources: []
+                            resources: ['./app/global.scss']
+
                         }
                     },
                 ]
@@ -75,6 +76,10 @@ module.exports = {
     },
     resolve: {
         extensions: ['.jsx', '.js'],
+        alias: {
+            services: path.resolve(__dirname, 'services/'),
+
+        }
     },
     plugins: [
         // new CleanWebpackPlugin([outputDirectory]),

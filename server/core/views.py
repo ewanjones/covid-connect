@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import FormView, TemplateView
 
@@ -37,3 +38,8 @@ class Register(FormView):
 
 class Home(TemplateView):
     template_name = "home.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["react_bundle_url"] = settings.REACT_BUNDLE_BASE_URL
+        return context

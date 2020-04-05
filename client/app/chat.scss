@@ -1,0 +1,19 @@
+.chat-container {
+    @extend .row;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: lightblue;
+}
+
+.messages {
+    @extend .h-75;
+    width: 100%;
+}
+
+.message-window {
+    @extend .h-25;
+    @extend .border-top;
+    @extend .border-dark;
+    width: 100%;
+}

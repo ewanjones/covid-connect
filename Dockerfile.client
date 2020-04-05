@@ -2,5 +2,7 @@ FROM node:12.16.1
 
 WORKDIR /app/
 
-ADD package.json /app/
+ENV NODE_ENV development
+
+ADD client/package.json /app/
 RUN npm install

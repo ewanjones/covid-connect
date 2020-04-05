@@ -74,6 +74,14 @@ TEMPLATES = [
 WSGI_APPLICATION = "covid.wsgi.application"
 
 
+# ======
+#  AUTH
+# ======
+
+
+REACT_BUNDLE_BASE_URL = "http://localhost:3000/"
+
+
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
