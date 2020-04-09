@@ -12,9 +12,15 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+from envparse import env
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 _CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.join(_CURRENT_DIR, "../..")
+
+
+env_filepath = os.path.abspath(os.path.join(BASE_DIR, ".env"))
+env.read_envfile(path=env_filepath)
 
 
 # Quick-start development settings - unsuitable for production
@@ -41,6 +47,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "covid",
     "core",
+    "twilio",
 ]
 
 MIDDLEWARE = [
@@ -72,11 +79,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "covid.wsgi.application"
-
-
-# ======
-#  AUTH
-# ======
 
 
 REACT_BUNDLE_BASE_URL = "http://localhost:3000/"
@@ -114,6 +116,13 @@ AUTH_USER_MODEL = "core.User"
 LOGIN_URL = "login/"
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/login"
+
+
+# TWILIO
+
+TWILIO_BASE_URL = "https://chat.twilio.com/v2/"
+TWILIO_ACCOUNT_SID = env.str("TWILIO_ACCOUNT_SID ")
+TWILIO_AUTH_TOKEN = env.str("TWILIO_AUTH_TOKEN")
 
 
 # Internationalization
