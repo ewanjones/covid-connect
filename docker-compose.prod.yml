@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+
+    nginx:
+      image: nginx:latest
+      container_name: nginx
+      volumes:
+        - ./nginx.prod.conf:/etc/nginx/nginx.conf
+        - static_files:/static/
+      ports:
+        - 80:80
+        - 443:443
+      depends_on:
+        - server
+
+    server:
+        build:
+          context: .
+          dockerfile: Dockerfile.prod
+        image: ewanjones/prod:latest
+        working_dir: /app/
+        command: bash -c "gunicorn covid.wsgi --bind 0.0.0.0:8000"
+        environment:
+          - DJANGO_SETTINGS_MODULE=covid.settings.production
+        volumes:
+            - ./server/:/app/
+            - static_files:/app/server/static
+        ports:
+          - "8000:8000"
+
+volumes:
+  static_files:

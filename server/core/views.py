@@ -31,7 +31,7 @@ class Register(FormView):
             )
         except Exception as e:
             form.add_error(None, str(e))
-            return self.form_invalid()
+            return self.form_invalid(form)
 
         return self.get_success_url()
 

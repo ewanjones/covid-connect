@@ -21,6 +21,7 @@ BASE_DIR = os.path.join(_CURRENT_DIR, "../..")
 
 env_filepath = os.path.abspath(os.path.join(BASE_DIR, ".env"))
 env.read_envfile(path=env_filepath)
+print(os.environ["TWILIO_ACCOUNT_SID"])
 
 
 # Quick-start development settings - unsuitable for production
@@ -81,7 +82,7 @@ TEMPLATES = [
 WSGI_APPLICATION = "covid.wsgi.application"
 
 
-REACT_BUNDLE_BASE_URL = "http://localhost:3000/"
+REACT_BUNDLE_BASE_URL = "http://localhost:3000/chat.bundle.js"
 
 
 # Database
@@ -121,8 +122,11 @@ LOGOUT_REDIRECT_URL = "/login"
 # TWILIO
 
 TWILIO_BASE_URL = "https://chat.twilio.com/v2/"
-TWILIO_ACCOUNT_SID = env.str("TWILIO_ACCOUNT_SID ")
+TWILIO_ACCOUNT_SID = env.str("TWILIO_ACCOUNT_SID")
 TWILIO_AUTH_TOKEN = env.str("TWILIO_AUTH_TOKEN")
+
+# The name of the service we want the server to use - {LOCAL | PRODUCTION}
+TWILIO_SERVICE_NAME = ""
 
 
 # Internationalization

@@ -31,7 +31,8 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "sass-resources-loader": "^2.0.0",
-    "twilio": "^3.42.0"
+    "twilio": "^3.42.0",
+    "twilio-chat": "^3.3.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

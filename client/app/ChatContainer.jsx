@@ -5,8 +5,7 @@ import TwilioClient from 'services/twilio'
 
 
 function ChatContainer() {
-    TwilioClient().getToken()
-
+    TwilioClient().createChat()
     return (
         <div className={styles.chatContainer}>
             <div className={styles.messages}>
