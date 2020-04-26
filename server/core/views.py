@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.contrib.auth.views import LoginView, LogoutView
+from django.http import HttpResponseRedirect
 from django.views.generic import FormView, TemplateView
 
 from . import forms, models
@@ -30,10 +31,10 @@ class Register(FormView):
                 data["phone"],
             )
         except Exception as e:
-            form.add_error(None, str(e))
+            form.add_error(None, e)
             return self.form_invalid(form)
 
-        return self.get_success_url()
+        return HttpResponseRedirect(self.get_success_url())
 
 
 class Home(TemplateView):
