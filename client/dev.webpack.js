@@ -8,7 +8,7 @@ module.exports = merge(baseConfig, {
     watch: true,
     output: {
         filename: '[name].bundle.js',
-        path: __dirname + '../server/covid/static/js/',
+        path: __dirname + '../server/core/static/js/',
     },
     devServer: {
         host: '0.0.0.0',

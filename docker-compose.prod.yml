@@ -20,9 +20,9 @@ services:
           dockerfile: Dockerfile.prod
         image: ewanjones/prod:latest
         working_dir: /app/
-        command: bash -c "gunicorn covid.wsgi --bind 0.0.0.0:8000"
+        command: bash -c "gunicorn core.wsgi --bind 0.0.0.0:8000"
         environment:
-          - DJANGO_SETTINGS_MODULE=covid.settings.production
+          - DJANGO_SETTINGS_MODULE=core.settings.production
         volumes:
             - ./server/:/app/
             - static_files:/app/server/static

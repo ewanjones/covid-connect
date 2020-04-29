@@ -23,4 +23,4 @@ RUN python manage.py collectstatic
 COPY --from=client /app/client/dist/bundle.js /app/server/static/
 
 
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "covid.wsgi"]
+CMD ["gunicorn", "-b", "0.0.0.0:8000", "core.wsgi"]

@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
-const outputDirectory = 'covid/static';
+const outputDirectory = 'core/static';
 
 
 module.exports = {

@@ -36,7 +36,7 @@ services:
         working_dir: /app/
         command: bash -c "python manage.py runserver 0.0.0.0:9000"
         environment:
-          - DJANGO_SETTINGS_MODULE=covid.settings.development
+          - DJANGO_SETTINGS_MODULE=core.settings.development
         volumes:
             - ./server/:/app/
         ports:
